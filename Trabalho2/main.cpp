@@ -6,13 +6,17 @@
 using namespace std;
 
 
-class MaquinaVenda{
+class Produto{
 private:
-vector<MaquinaVenda> mv;
+string Marca;
+int Quantidade;
+//float Preco;
+//vector<MaquinaVenda> mv;
 
 public:
-MaquinaVenda();
-//void Estoque(int v);
+Produto();
+void Estoque(int v); //Verifica a quantidade de produtos na maquina
+
 //void InformarPreço();
 //float LerDinheiro(int  v);
 //float DarTroco(int v);
@@ -21,8 +25,7 @@ MaquinaVenda();
 
 };
 
-
-MaquinaVenda::MaquinaVenda(){
+Produto::Produto(){
 
 }
 //void Estoque(int v){
@@ -37,7 +40,7 @@ int main()
 
    cout << "Maquina de vendas" << endl ;
 
-   vector <MaquinaVenda> maq;
+   //vector <MaquinaVenda> maq;
 
     //maq.Estoque(5);
     //cout << maq;
