@@ -1,45 +1,65 @@
 //http://www.cranems.com/
 //teste2
 #include <iostream>
-# include <vector>
+#include <string>
 
 using namespace std;
 
 
-class MaquinaVenda{
+class Produto
+{
 private:
-vector<MaquinaVenda> mv;
-
+    string Marca;
+    float  Preco;
+    int Quant;
+    int Cod;
 public:
-MaquinaVenda();
-//void Estoque(int v);
-//void InformarPreço();
-//float LerDinheiro(int  v);
-//float DarTroco(int v);
-
-
+    Produto(string m, float p,int q, int c);
+    //void MarcaRefri(string a);
+    //void PrecoRefri(float a);
+    //void QuantRefri(int a);
+    //void CodRefri(int a);
 
 };
+Produto::Produto( string m, float p,int q, int c)
+{
+Marca = m;
+Preco = p;
+Quant = q;
+Cod = c;
+}
 
-
-MaquinaVenda::MaquinaVenda(){
+/*void Produto::MarcaRefri(string a)
+{
+   a = Marca;
 
 }
-//void Estoque(int v){
 
-   // mv.push_back(v);
-//}
+void Produto::PrecoRefri(float a)
 
+{
+    Preco = a;
+}
+void QuantRefri(float a)
+{
 
-
+}
+*/
 int main()
 {
 
-   cout << "Maquina de vendas" << endl ;
+ Produto Coca("coca",5.5,5,32);
 
-   vector <MaquinaVenda> maq;
+    cout << Coca << endl;
 
-    //maq.Estoque(5);
-    //cout << maq;
+
+
+
+
+
+
+
+
+
 
 }
