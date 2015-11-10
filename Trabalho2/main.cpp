@@ -1,7 +1,8 @@
 //http://www.cranems.com/
 //teste2
 #include <iostream>
-# include <vector>
+#include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -37,8 +38,20 @@ Produto::Produto(){
 
 int main()
 {
+    string m;
+    float p;
+    int q;
+    int c;
 
-   cout << "Maquina de vendas" << endl ;
+    cout << "Maquina de vendas" << endl ;
+
+    ifstream myfile;
+    myfile.open ("test.txt", ios::in);
+    myfile >> m >> p >> q >> c;
+    cout << "Marca|Preco|Quantidade|Codigo" << endl;
+    cout << m << "|" << p << "|" << q << "|" << c << "|";
+
+
 
    //vector <MaquinaVenda> maq;
 
