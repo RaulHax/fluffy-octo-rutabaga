@@ -14,25 +14,23 @@ class Produto
 private:
     string Marca;
     float  Preco;
-    int Quant;
     int Cod;
 public:
-    Produto(string m, float p,int q, int c);
+    Produto(int c, string m, float p);
 };
 
-Produto::Produto( string m, float p,int q, int c)
+Produto::Produto( int c ,string m, float p)
 {
     Marca = m;
     Preco = p;
-    Quant = q;
     Cod = c;
 }
 ostream& operator<<(ostream& s, const Produto& Refri)
 {
     s  << "Codigo do produto: " << Refri.Cod  << endl
        << "Marca: " << Refri.Marca << endl
-       << "Preco: " << Refri.Preco << endl
-       << "Quantidade de itens: " << Refri.Quant << endl;
+       << "Preco: R$" << Refri.Preco << endl;
+
 
     return s;
 
@@ -42,19 +40,27 @@ ostream& operator<<(ostream& s, const Produto& Refri)
 int main()
 {
 
-    Produto Refri("Coca-Cola",2.50,5,1), Refri1("Kaut",2,5,2), Refri2("Fanta",3,5,3);
-    cout << Refri << endl;
-    cout << Refri1 << endl;
-    cout << Refri2 << endl;
-
-    int c, q;
+    int c;
     float p;
     string m;
 
-    cout << "Marca|Preco|Quantidade|Codigo" << endl;
+
     ifstream myfile;
-    myfile.open ("test.txt", ios::in);
-    myfile >> c >> m >> p >> q;
-    cout << c << "|" << m << "|" << p << "|" << q << "|" << endl;
+    myfile.open ("bd1.txt", ios::in);
+    myfile >> c >> m >> p;
+
+    while (c != -1){
+    Produto Refri(c,m,p); //, Refri1(c,m,p), Refri2(c,m,p);
+    myfile >> c >> m >> p;
+    cout << Refri << endl;
+
+    //cout << Refri1 << endl;
+   // cout << Refri2 << endl;
+    }
+    myfile.close();
+
+
+
+
 
 }

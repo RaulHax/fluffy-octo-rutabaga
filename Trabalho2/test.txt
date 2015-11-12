@@ -1,3 +1,0 @@
-100 coca 5.5 3
-101 sprite 5.4 2 
-102 cocazero 5.6 4 
