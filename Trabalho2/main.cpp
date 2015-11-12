@@ -6,36 +6,6 @@
 
 using namespace std;
 
-
-class Produto{
-private:
-string Marca;
-int Quantidade;
-//float Preco;
-//vector<MaquinaVenda> mv;
-
-public:
-Produto();
-void Estoque(int v); //Verifica a quantidade de produtos na maquina
-
-//void InformarPreço();
-//float LerDinheiro(int  v);
-//float DarTroco(int v);
-
-
-
-};
-
-Produto::Produto(){
-
-}
-//void Estoque(int v){
-
-   // mv.push_back(v);
-//}
-
-
-
 int main()
 {
     string m;
@@ -45,17 +15,9 @@ int main()
 
     cout << "Maquina de vendas" << endl ;
 
+    cout << "Marca|Preco|Quantidade|Codigo" << endl;
     ifstream myfile;
     myfile.open ("test.txt", ios::in);
-    myfile >> m >> p >> q >> c;
-    cout << "Marca|Preco|Quantidade|Codigo" << endl;
-    cout << m << "|" << p << "|" << q << "|" << c << "|";
-
-
-
-   //vector <MaquinaVenda> maq;
-
-    //maq.Estoque(5);
-    //cout << maq;
-
+    myfile >> c >> m >> p >> q;
+    cout << c << "|" << m << "|" << p << "|" << q << "|" << endl;
 }
