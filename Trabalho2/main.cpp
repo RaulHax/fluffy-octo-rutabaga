@@ -3,11 +3,13 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
 
+using namespace std;
 
 class Produto
 {
+    friend std::ostream& operator<<(std::ostream&, const Produto&);
+
 private:
     string Marca;
     float  Preco;
@@ -15,47 +17,35 @@ private:
     int Cod;
 public:
     Produto(string m, float p,int q, int c);
-    //void MarcaRefri(string a);
-    //void PrecoRefri(float a);
-    //void QuantRefri(int a);
-    //void CodRefri(int a);
-
 };
+
 Produto::Produto( string m, float p,int q, int c)
 {
-Marca = m;
-Preco = p;
-Quant = q;
-Cod = c;
+    Marca = m;
+    Preco = p;
+    Quant = q;
+    Cod = c;
 }
-
-/*void Produto::MarcaRefri(string a)
+ostream& operator<<(ostream& s, const Produto& Refri)
 {
-   a = Marca;
+    s  << "Codigo do produto: " << Refri.Cod  << endl
+       << "Marca: " << Refri.Marca << endl
+       << "Preco: " << Refri.Preco << endl
+       << "Quantidade de itens: " << Refri.Quant << endl;
+
+    return s;
+
 
 }
 
-void Produto::PrecoRefri(float a)
 
-{
-    Preco = a;
-}
-void QuantRefri(float a)
-{
-
-}
-*/
 int main()
 {
 
- Produto Coca("coca",5.5,5,32);
-
-    cout << Coca << endl;
-
-
-
-
-
+    Produto Refri("Coca-Cola",2.50,5,1), Refri1("Kaut",2,5,2), Refri2("Fanta",3,5,3);
+    cout << Refri << endl;
+    cout << Refri1 << endl;
+    cout << Refri2 << endl;
 
 
 
