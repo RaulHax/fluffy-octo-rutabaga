@@ -9,7 +9,7 @@ using namespace std;
 
 class Produto
 {
-    friend std::ostream& operator<<(std::ostream&, const Produto&);
+    friend ostream& operator<<(ostream&, const Produto&);
 
 private:
     string Marca;
@@ -36,7 +36,14 @@ ostream& operator<<(ostream& s, const Produto& Refri)
 
 
 }
+class Estoque{
+private:
 
+public:
+
+
+
+};
 int main()
 {
 
