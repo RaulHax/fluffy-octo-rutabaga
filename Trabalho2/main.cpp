@@ -10,7 +10,6 @@ using namespace std;
 class Produto
 {
     friend ostream& operator<<(ostream&, const Produto&);
-
 private:
     string Marca;
     float  Preco;
@@ -36,14 +35,31 @@ ostream& operator<<(ostream& s, const Produto& Refri)
 
 
 }
+
 class Estoque{
+friend ostream& operator<<(ostream&, const Estoque&);
+
 private:
-
+    int Codigo;
+    int Quantidade;
 public:
-
-
-
+    Estoque(int c, int q);
+   void Dados(int c, int q);
 };
+/*Estoque::Estoque(int c, int q){
+
+Codigo=c;
+Quantidade=q;
+
+}
+ostream& operator<<(ostream& s, const Estoque& controle){
+
+s  << "Estoque " << controle  << endl;
+
+return s;
+
+
+}*/
 int main()
 {
 
@@ -65,6 +81,15 @@ int main()
    // cout << Refri2 << endl;
     }
     myfile.close();
+
+
+ /*Estoque controle(1,17);
+
+    cout <<  controle << endl;*/
+
+
+
+
 
 
 
