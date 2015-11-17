@@ -14,43 +14,45 @@ class Estoque
 
 private:
     int Cod;
+    string Marca;
+    float Preco;
     int Quant;
 
+
 public:
-    Estoque( int c, int q );
+    Estoque(int c, string m, float p, int q);
     Estoque();
-    void SetQtd( int c, int q );
+    void SetQtd( int c, string m, float p, int q );
     int getCod();
+    float getPreco();
+    string getMarca();
     int getQuant();
 };
 
-class Produto
-{
-    friend ostream& operator<<(ostream&, const Produto&);
-private:
-    string Marca;
-    float  Preco;
-    int Cod;
-public:
-    Produto(int c, string m, float p);
-};
 
-Estoque::Estoque( int c, int q )
+Estoque::Estoque( int c, string m, float p, int q )
 {
     Cod = c;
+    Marca = m;
+    Preco = p;
     Quant = q;
+
 
 }
 
 Estoque::Estoque()
 {
     Cod = 0;
+    Marca = "N";
+    Preco = 0.0;
     Quant = 0;
 }
 
-void Estoque::SetQtd( int c, int q )
+void Estoque::SetQtd( int c, string m, float p, int q )
 {
     Cod = c;
+    Marca = m;
+    Preco = p;
     Quant = q;
 }
 
@@ -60,59 +62,44 @@ int Estoque::getCod()
     return Cod;
 }
 
+string Estoque::getMarca()
+{
+    return Marca;
+}
+
+float Estoque::getPreco()
+{
+    return Preco;
+}
+
 int Estoque::getQuant()
 {
     return Quant;
 }
 
-
 ostream& operator<<(ostream& s, const Estoque& Prod)
 {
-    s  << "Codigo: " << Prod.Cod  //<< endl;
+    s   << "Codigo: " << Prod.Cod
+        << "\tMarca: " << Prod.Marca
+        << "\tPreco: " << Prod.Preco
 
-       << "\t Quantidade: " << Prod.Quant << endl;
-
-    return s;
-}
-
-Produto::Produto( int c ,string m, float p)
-{
-    Marca = m;
-    Preco = p;
-    Cod = c;
-}
-ostream& operator<<(ostream& s, const Produto& Refri)
-{
-    s  << "Codigo do produto: " << Refri.Cod  << endl
-       << "Marca: " << Refri.Marca << endl
-       << "Preco: R$" << Refri.Preco << endl;
-
+        << "\tQuantidade: " << Prod.Quant << endl;
 
     return s;
-
-
 }
+
+void Lev_estoque(Estoque ts[5])
+{
+    for(int i = 0 ; i < 5 ; i++) // deveria ser i < 100!
+    {
+
+    }
+}
+
 
 int main()
 {
 
-    int co;
-    float p;
-    string m;
-
-
-    ifstream myfile;
-    myfile.open ("bd1.txt", ios::in);
-    myfile >> co >> m >> p;
-
-    while (co != -1){
-    Produto Refri(co,m,p);
-    myfile >> co >> m >> p;
-    cout << Refri << endl;
-    }
-    myfile.close();
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     Estoque Prod[7];
 
     int proc_operacao = 0;
@@ -122,12 +109,19 @@ int main()
     int j=0;
     int k=0;
     int c;
+    string m;
+    float p;
     int q;
     int a;
+
+
+
     cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
     cin >>  a ;
 
-    while (a!=0){
+
+
+     while (a!=0){
     cout << " >>>>> CONSULTANDO Estoque-cp.txt <<<<<<" << endl;
     cout << endl;
     cout << " >>> PRODUTOS DIPONIVEIS: <<<" << endl;
@@ -135,14 +129,13 @@ int main()
 
     ifstream consulta_estoque;
     consulta_estoque.open ("Estoque-cp.txt", ios::in);
-    consulta_estoque >> c >> q;
+    consulta_estoque >> c >> m >> p >> q;
 
-    while (c != -1)
-    {
-        Prod[i].SetQtd(c,q);
-        consulta_estoque >> c >> q;
-        cout << Prod[i] << endl;
-        i++;
+    while (c != -1){
+    Prod[i].SetQtd(c,m,p,q);
+    consulta_estoque >> c >> m >> p >> q;
+    cout << Prod[i] << endl;
+    i++;
     }
 
     cout << endl;
@@ -154,25 +147,21 @@ int main()
     cin >> prod_select;
 
 
-
     ifstream consulta_produto;
     consulta_produto.open ("Estoque-cp.txt", ios::in);
-    consulta_produto >> c >> q;
+    consulta_produto >> c >> m >> p >> q;
 
-    while (c != -1)
-    {
+    while (c != -1){
 
-        if (c == prod_select)
-        {
+        if (c == prod_select){
             cout << endl;
             cout << " >>> PRODUTO ESCOLHIDO:" << endl;
             cout << Prod[k] << endl;
             produto_encontrado = true;
             break;
         }
-        else
-        {
-            consulta_produto >> c >> q;
+        else{
+            consulta_produto >> c >> m >> p >> q;
             k++;
         }
 
@@ -180,19 +169,16 @@ int main()
 
 //PROCESSAMENTO OPERACAO
 
-    if (produto_encontrado == true)
-    {
+    if (produto_encontrado == true){
 
-        if (Prod[k].getQuant()<=0)
-        {
+        if (Prod[k].getQuant()<=0){
             proc_operacao = 1;
             cout << "!!!! PRODUTO ESCOLHIDO INDISPONIVEL !!!!" << endl;
             cout << endl;
         }
 
 
-  /*     else
-        {
+ /*       else{
             //CONFIRMAR PEDIDO
             cout << " >>>>> CONFIRMAR PEDIDO, DIGITE:" << endl;
             cout << "(1)PARA CONFIRMAR PEDIDO;" << endl;
@@ -201,79 +187,71 @@ int main()
             cout << endl;
         }*/
     }
-   /* else
-    {
+    else {
         cout << " !!!CODIGO DE PRODUTO INCORRETO!!! " << endl;
-        cout << "DIGITE: " << endl;
+       /* cout << "DIGITE: " << endl;
         cout << "(2)REFAZER PEDIDO;" << endl;
         cout << "(3)CANCELAR OPERACAO;" << endl;
-        cout << endl;
+        cout << endl;*/
 
     }
 
     cout << endl;
     cout << endl;
-*/
+
 
     consulta_produto.close();
 
 
-    if(proc_operacao==0)
-    {
+   if(proc_operacao==0){
 
 
-        cout << " >>>>> ALTERANDO Estoque-cp.txt <<<<<<" << endl;
-        cout << endl;
+            cout << " >>>>> ALTERANDO Estoque-cp.txt <<<<<<" << endl;
+            cout << endl;
 
-        ofstream altera_estoque("Estoque-cp.txt", ios::out); //ios::out = cria novo arquivo ou deleta dados; ios::app = mantem dados arquivo; ios::ate = mantem e coloca na posicao final; ios::trunc = deleta dados arquivo;
+            ofstream altera_estoque("Estoque-cp.txt", ios::out); //ios::out = cria novo arquivo ou deleta dados; ios::app = mantem dados arquivo; ios::ate = mantem e coloca na posicao final; ios::trunc = deleta dados arquivo;
 
-        cout << "PRODUTO ALTERADO:" << endl;
-        Prod[k].SetQtd(Prod[k].getCod(),Prod[k].getQuant()-1);
-        cout << Prod[k] << endl;
-        cout << endl;
+            cout << "PRODUTO ALTERADO:" << endl;
+            Prod[k].SetQtd(Prod[k].getCod(),Prod[k].getMarca(),Prod[k].getPreco(),Prod[k].getQuant()-1);
+            cout << Prod[k] << endl;
+            cout << endl;
 
-        cout << "ATUALIZANDO ESTOQUE:" << endl;
-        //altera_estoque << "\n";
-        while (j != 7)
-        {
-            altera_estoque << Prod[j].getCod() << " " << Prod[j].getQuant() << "\n";
+            cout << "ATUALIZANDO ESTOQUE:" << endl;
+            //altera_estoque << "\n";
+            while (j != 7){
+            altera_estoque << Prod[j].getCod() << " " << Prod[j].getMarca() << " " << Prod[j].getPreco() << " " << Prod[j].getQuant() << "\n";
             cout << Prod[j] << endl;
             j++;
+            }
+            altera_estoque << "-1";
+
+            altera_estoque.close();
+
+
+            cout << endl;
+            cout << "OPERACAO CONCLUIDA!" << endl;
+
         }
-        altera_estoque << "-1";
 
-        altera_estoque.close();
+        else if(proc_operacao==1)
+        {
+            cout << endl;
+            cout << "OPERACAO CANCELADA!" << endl;
 
+        }
 
-        cout << endl;
-        cout << "OPERACAO CONCLUIDA!" << endl;
+        else if(proc_operacao==2)
+        {
+            cout << endl;
+            cout << "OPERACAO CANCELADA!" << endl;
 
-    }
+        }
 
-    else if(proc_operacao==1)
-    {
-        cout << endl;
-        cout << "OPERACAO CANCELADA!" << endl;
+     }
 
-    }
-
-    else if(proc_operacao==2)
-    {
-        cout << endl;
-        cout << "OPERACAO CANCELADA!" << endl;
-
-    }
-
-     cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
+    cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
     cin >>  a ;
 
 
-
-
-    }
-
-
-
-
-
+return 0;
 }
