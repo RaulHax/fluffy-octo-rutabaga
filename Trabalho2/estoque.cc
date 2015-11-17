@@ -24,6 +24,16 @@ public:
     int getQuant();
 };
 
+class Produto
+{
+    friend ostream& operator<<(ostream&, const Produto&);
+private:
+    string Marca;
+    float  Preco;
+    int Cod;
+public:
+    Produto(int c, string m, float p);
+};
 
 Estoque::Estoque( int c, int q )
 {
@@ -55,6 +65,7 @@ int Estoque::getQuant()
     return Quant;
 }
 
+
 ostream& operator<<(ostream& s, const Estoque& Prod)
 {
     s  << "Codigo: " << Prod.Cod  //<< endl;
@@ -63,16 +74,6 @@ ostream& operator<<(ostream& s, const Estoque& Prod)
 
     return s;
 }
-class Produto
-{
-    friend ostream& operator<<(ostream&, const Produto&);
-private:
-    string Marca;
-    float  Preco;
-    int Cod;
-public:
-    Produto(int c, string m, float p);
-};
 
 Produto::Produto( int c ,string m, float p)
 {
@@ -122,7 +123,11 @@ int main()
     int k=0;
     int c;
     int q;
+    int a;
+    cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
+    cin >>  a ;
 
+    while (a!=0){
     cout << " >>>>> CONSULTANDO Estoque-cp.txt <<<<<<" << endl;
     cout << endl;
     cout << " >>> PRODUTOS DIPONIVEIS: <<<" << endl;
@@ -147,6 +152,7 @@ int main()
     cout << " >>> ESCOLHA SEU PRODUTO:" << endl;
     cout << "Codigo: ";
     cin >> prod_select;
+
 
 
     ifstream consulta_produto;
@@ -185,7 +191,7 @@ int main()
         }
 
 
-        else
+  /*     else
         {
             //CONFIRMAR PEDIDO
             cout << " >>>>> CONFIRMAR PEDIDO, DIGITE:" << endl;
@@ -193,9 +199,9 @@ int main()
             cout << "(2)REFAZER PEDIDO;" << endl;
             cout << "(3)CANCELAR OPERACAO;" << endl;
             cout << endl;
-        }
+        }*/
     }
-    else
+   /* else
     {
         cout << " !!!CODIGO DE PRODUTO INCORRETO!!! " << endl;
         cout << "DIGITE: " << endl;
@@ -207,7 +213,7 @@ int main()
 
     cout << endl;
     cout << endl;
-
+*/
 
     consulta_produto.close();
 
@@ -258,10 +264,16 @@ int main()
 
     }
 
+     cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
+    cin >>  a ;
 
 
 
-    return 0;
+
+    }
+
+
+
 
 
 }
