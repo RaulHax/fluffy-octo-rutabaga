@@ -1,8 +1,8 @@
-1 Coca-Cola     5.5
-2 Sprite        5.4 
-3 Coca-Zero     5.5
-4 Kuat          5.6
+1 Coca-Cola 5.5
+2 Sprite 5.4 
+3 Coca-Zero 5.5
+4 Kuat 5.6
 5 Fanta-Laranja 5.5
-6 Fanta-Uva     5.2
-7 Agua          5.3
+6 Fanta-Uva 5.2
+7 Agua 5.3
 -1
