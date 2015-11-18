@@ -172,6 +172,7 @@ int main()
                 {
 
                     resul = ficha - p;
+               cout << "Troco:" << resul;
                break;
                 }
                 else if(ficha < p )
@@ -179,8 +180,8 @@ int main()
 
                     cout << "   !!!FICHAS INSUFICIENTES!!!   " << endl;
                     cout << endl;
-                    cout << "Retire seu total te fichas: " << ficha << endl;
-                    cout << "Troco:" << resul;
+                    cout << "Retire seu total de fichas: " << ficha << endl;
+
                     break;
 
                 }

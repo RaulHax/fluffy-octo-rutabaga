@@ -1,8 +1,8 @@
 1 CocaCola 4 9
 2 Sprite 3 23
-3 CocaZero 5 20
+3 CocaZero 5 19
 4 Kuat 6 27
-5 Dolly 1 34
+5 Dolly 1 33
 6 FantaUva 3 19
 7 Agua 3 28
 -1
