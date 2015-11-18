@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <iomanip>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -80,9 +81,8 @@ int Estoque::getQuant()
 ostream& operator<<(ostream& s, const Estoque& Prod)
 {
     s   << "Codigo: " << Prod.Cod
-        << "\tMarca: " << Prod.Marca
-        << "\tPreco: " << Prod.Preco
-
+        << "\tMarca:" << Prod.Marca << ""
+        << "\tPreco:" << Prod.Preco << ""
         << "\tQuantidade: " << Prod.Quant << endl;
 
     return s;
@@ -101,6 +101,14 @@ int main()
 {
 
     Estoque Prod[7];
+    int a;
+
+    cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
+    cin >>  a ;
+
+     system("cls");
+
+while (a!=0){
 
     int proc_operacao = 0;
     bool produto_encontrado = false;
@@ -112,17 +120,8 @@ int main()
     string m;
     float p;
     int q;
-    int a;
 
-
-
-    cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
-    cin >>  a ;
-
-
-
-     while (a!=0){
-    cout << " >>>>> CONSULTANDO Estoque-cp.txt <<<<<<" << endl;
+    //cout << " >>>>> CONSULTANDO Estoque-cp.txt <<<<<<" << endl;
     cout << endl;
     cout << " >>> PRODUTOS DIPONIVEIS: <<<" << endl;
     cout << endl;
@@ -131,7 +130,8 @@ int main()
     consulta_estoque.open ("Estoque-cp.txt", ios::in);
     consulta_estoque >> c >> m >> p >> q;
 
-    while (c != -1){
+while (c != -1){
+
     Prod[i].SetQtd(c,m,p,q);
     consulta_estoque >> c >> m >> p >> q;
     cout << Prod[i] << endl;
@@ -151,6 +151,8 @@ int main()
     consulta_produto.open ("Estoque-cp.txt", ios::in);
     consulta_produto >> c >> m >> p >> q;
 
+
+    system("cls");
     while (c != -1){
 
         if (c == prod_select){
@@ -164,6 +166,8 @@ int main()
             consulta_produto >> c >> m >> p >> q;
             k++;
         }
+
+
 
     }
 
@@ -206,21 +210,21 @@ int main()
    if(proc_operacao==0){
 
 
-            cout << " >>>>> ALTERANDO Estoque-cp.txt <<<<<<" << endl;
-            cout << endl;
+           // cout << " >>>>> ALTERANDO Estoque-cp.txt <<<<<<" << endl;
+            //cout << endl;
 
             ofstream altera_estoque("Estoque-cp.txt", ios::out); //ios::out = cria novo arquivo ou deleta dados; ios::app = mantem dados arquivo; ios::ate = mantem e coloca na posicao final; ios::trunc = deleta dados arquivo;
 
-            cout << "PRODUTO ALTERADO:" << endl;
+           //cout << "PRODUTO ALTERADO:" << endl;
             Prod[k].SetQtd(Prod[k].getCod(),Prod[k].getMarca(),Prod[k].getPreco(),Prod[k].getQuant()-1);
-            cout << Prod[k] << endl;
-            cout << endl;
+          //  cout << Prod[k] << endl;
+            //cout << endl;
 
-            cout << "ATUALIZANDO ESTOQUE:" << endl;
+            //cout << "ATUALIZANDO ESTOQUE:" << endl;
             //altera_estoque << "\n";
             while (j != 7){
             altera_estoque << Prod[j].getCod() << " " << Prod[j].getMarca() << " " << Prod[j].getPreco() << " " << Prod[j].getQuant() << "\n";
-            cout << Prod[j] << endl;
+            //cout << Prod[j] << endl;
             j++;
             }
             altera_estoque << "-1";
@@ -230,7 +234,7 @@ int main()
 
             cout << endl;
             cout << "OPERACAO CONCLUIDA!" << endl;
-
+            cout << endl;
         }
 
         else if(proc_operacao==1)

@@ -22,3 +22,10 @@
 	<fstream>
 	<iomanip>
 
+1447820252 source:c:\users\guilherme\desktop\trablho prog\fluffy-octo-rutabaga\trabalho2\estoque.cc
+	<iostream>
+	<string>
+	<fstream>
+	<iomanip>
+	<stdlib.h>
+
