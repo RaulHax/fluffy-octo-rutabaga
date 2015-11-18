@@ -1,8 +1,8 @@
-1 CocaCola 5.5 7
-2 Sprite 5.4 24
-3 CocaZero 5.5 20
-4 Kuat 5.6 30
-5 Dolly 5.5 34
-6 FantaUva 5.2 20
-7 Agua 5.3 27
+1 CocaCola 4 11
+2 Sprite 3 23
+3 CocaZero 5 20
+4 Kuat 6 29
+5 Dolly 1 34
+6 FantaUva 3 20
+7 Agua 3 28
 -1
