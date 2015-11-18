@@ -145,8 +145,9 @@ int main()
 
         cout << " >>> ESCOLHA SEU PRODUTO:" << endl;
         cout << "Codigo: ";
-        cin >> prod_select;
 
+        cin >> prod_select;
+         cout << "_______________________________________________________"<< endl;
 
 
         ifstream consulta_produto;
@@ -171,6 +172,7 @@ int main()
                 {
 
                     resul = ficha - p;
+               break;
                 }
                 else if(ficha < p )
                 {
@@ -178,12 +180,12 @@ int main()
                     cout << "   !!!FICHAS INSUFICIENTES!!!   " << endl;
                     cout << endl;
                     cout << "Retire seu total te fichas: " << ficha << endl;
-
+                    cout << "Troco:" << resul;
                     break;
 
                 }
                  system("cls");
-                cout << "Troco:" << resul;
+
 
             }
             else
@@ -264,20 +266,7 @@ int main()
 
         }
 
-        /*     else if(proc_operacao==1)
-             {
-                 cout << endl;
-                 cout << "OPERACAO CANCELADA!" << endl;
 
-             }
-
-             else if(proc_operacao==2)
-             {
-                 cout << endl;
-                 cout << "OPERACAO CANCELADA!" << endl;
-
-             }
-        */
         cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
         cin >>  a ;
 
