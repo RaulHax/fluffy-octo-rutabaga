@@ -12,16 +12,17 @@ int main()
 
     MaquinaDeVendas Prod[7];
 
-    int x,y,z;
+    int x,y,z; // x=para entrar no programa, y=numero de fichas, z=codigo selecionado
 
+    //Lendo o arquivo de entrada com dados do usuario
     ifstream leitura;
     leitura.open ("Entrada.txt", ios::in);
     leitura >> x >> y >> z;
 
 
 
-    system("cls");
 
+// loop para realizar os metodos
     while (x!=0)
     {
 
@@ -42,10 +43,11 @@ int main()
         cout << " >>> PRODUTOS DIPONIVEIS: <<<" << endl;
         cout << endl;
 
+        //leitura de arquivos do estoque de refrigerantes
         ifstream consulta_estoque;
         consulta_estoque.open ("Estoque-cp.txt", ios::in);
         consulta_estoque >> c >> m >> p >> q;
-
+        // while para exibir o estoque que entrou a cima
         while (c != -1)
         {
 
@@ -63,11 +65,11 @@ int main()
         cout << endl;
 
         consulta_estoque.close();
-    cout << endl;
+        cout << endl;
 
 
-       cout << " >>> DIGITE O CODIGO DO PRODUTO    :" << z << endl;
-    //cout << "Codigo: " << z;
+       cout << " >>> DIGITE O CODIGO DO PRODUTO:" << z << endl;
+
         cout << endl;
         prod_select = z;
 
