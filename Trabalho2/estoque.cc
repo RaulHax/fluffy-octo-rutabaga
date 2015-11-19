@@ -171,17 +171,17 @@ int main()
              if(ficha >=p)
                 {
 
-                    resul = ficha - p;
-               cout << "Troco:" << resul;
-               break;
-                }
+               resul = ficha - p;
+                break;
+
+              }
                 else if(ficha < p )
                 {
 
                     cout << "   !!!FICHAS INSUFICIENTES!!!   " << endl;
                     cout << endl;
                     cout << "Retire seu total de fichas: " << ficha << endl;
-
+                    cout << endl;
                     break;
 
                 }
@@ -206,6 +206,8 @@ int main()
                 proc_operacao = 1;
                 cout << "!!!! PRODUTO ESCOLHIDO INDISPONIVEL !!!!" << endl;
                 cout << endl;
+
+
             }
 
             /*       else{
@@ -261,8 +263,11 @@ int main()
 
 
             cout << endl;
-            cout << "OPERACAO CONCLUIDA!" << endl;
+            cout << "!!!OPERACAO CONCLUIDA!!!" << endl;
             cout << endl;
+            cout << "Troco:" << resul;
+            cout << endl;
+
         }
 
         }
