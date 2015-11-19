@@ -16,11 +16,13 @@
 	<fstream>
 	<iomanip>
 
-1447801112 source:h:\prog2\trabalho 2\fluffy-octo-rutabaga\trabalho2\estoque.cc
+1447958850 source:h:\prog2\trabalho 2\fluffy-octo-rutabaga\trabalho2\estoque.cc
 	<iostream>
 	<string>
 	<fstream>
 	<iomanip>
+	<stdlib.h>
+	"MaquinaDeVendas.h"
 
 1447872702 source:c:\users\guilherme\desktop\trablho prog\fluffy-octo-rutabaga\trabalho2\estoque.cc
 	<iostream>
@@ -28,4 +30,10 @@
 	<fstream>
 	<iomanip>
 	<stdlib.h>
+
+1447957640 source:h:\prog2\trabalho 2\fluffy-octo-rutabaga\trabalho2\maquinadevendas.cpp
+	"MaquinaDeVendas.h"
+
+1447957672 h:\prog2\trabalho 2\fluffy-octo-rutabaga\trabalho2\maquinadevendas.h
+	<iostream>
 
