@@ -1,5 +1,5 @@
 1 CocaCola 4 0
-2 Sprite 3 17
+2 Sprite 3 15
 3 CocaZero 5 19
 4 Kuat 6 27
 5 Dolly 1 33

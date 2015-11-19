@@ -9,9 +9,9 @@
 using namespace std;
 
 
-class Estoque
+class MaquinaDeVendas
 {
-    friend std::ostream& operator<<(std::ostream&, const Estoque&);
+    friend std::ostream& operator<<(std::ostream&, const MaquinaDeVendas&);
 
 private:
     int Cod;
@@ -21,8 +21,8 @@ private:
 
 
 public:
-    Estoque(int c, string m, int p, int q);
-    Estoque();
+    MaquinaDeVendas(int c, string m, int p, int q);
+    MaquinaDeVendas();
     void SetQtd( int c, string m, int p, int q );
     int getCod();
     int getPreco();
@@ -31,7 +31,7 @@ public:
 };
 
 
-Estoque::Estoque( int c, string m, int p, int q )
+MaquinaDeVendas::MaquinaDeVendas( int c, string m, int p, int q )
 {
     Cod = c;
     Marca = m;
@@ -41,7 +41,7 @@ Estoque::Estoque( int c, string m, int p, int q )
 
 }
 
-Estoque::Estoque()
+MaquinaDeVendas::MaquinaDeVendas()
 {
     Cod = 0;
     Marca = "N";
@@ -49,7 +49,7 @@ Estoque::Estoque()
     Quant = 0;
 }
 
-void Estoque::SetQtd( int c, string m, int p, int q )
+void MaquinaDeVendas::SetQtd( int c, string m, int p, int q )
 {
     Cod = c;
     Marca = m;
@@ -58,32 +58,32 @@ void Estoque::SetQtd( int c, string m, int p, int q )
 }
 
 
-int Estoque::getCod()
+int MaquinaDeVendas::getCod()
 {
     return Cod;
 }
 
-string Estoque::getMarca()
+string MaquinaDeVendas::getMarca()
 {
     return Marca;
 }
 
-int Estoque::getPreco()
+int MaquinaDeVendas::getPreco()
 {
     return Preco;
 }
 
-int Estoque::getQuant()
+int MaquinaDeVendas::getQuant()
 {
     return Quant;
 }
 
-ostream& operator<<(ostream& s, const Estoque& Prod)
+ostream& operator<<(ostream& s, const MaquinaDeVendas& Prod)
 {
     s   << "Codigo: " << Prod.Cod
-        << "\tMarca:" << Prod.Marca << ""
-        << "\tPreco:" << Prod.Preco << ""
-        << "\tQuantidade: " << Prod.Quant << endl;
+    << "\tMarca:" << Prod.Marca << ""
+    << "\tPreco:" << Prod.Preco << ""
+    << "\tQuantidade: " << Prod.Quant << endl;
 
     return s;
 }
@@ -92,7 +92,7 @@ ostream& operator<<(ostream& s, const Estoque& Prod)
 int main()
 {
 
-    Estoque Prod[7];
+    MaquinaDeVendas Prod[7];
     int a;
 
     cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
@@ -147,8 +147,8 @@ int main()
         cout << "Codigo: ";
 
         cin >> prod_select;
-         cout << "_______________________________________________________"<< endl;
-
+        cout << "_______________________________________________________"<< endl;
+        system("cls");
 
         ifstream consulta_produto;
         consulta_produto.open ("Estoque-cp.txt", ios::in);
@@ -168,24 +168,24 @@ int main()
 
                 produto_encontrado = true;
 
-             if(ficha >=p)
+                if (ficha >=p)
                 {
 
-               resul = ficha - p;
-                break;
+                    resul = ficha - p;
+                    break;
 
-              }
-                else if(ficha < p )
+                }
+                else if (ficha < p )
                 {
 
                     cout << "   !!!FICHAS INSUFICIENTES!!!   " << endl;
                     cout << endl;
-                    cout << "Retire seu total de fichas: " << ficha << endl;
+                    cout << "Troco:" << ficha << endl;
                     cout << endl;
                     break;
 
                 }
-                 system("cls");
+                system("cls");
 
 
             }
@@ -206,7 +206,7 @@ int main()
                 proc_operacao = 1;
                 cout << "!!!! PRODUTO ESCOLHIDO INDISPONIVEL !!!!" << endl;
                 cout << endl;
-
+                cout << "Troco:" << ficha << endl;
 
             }
 
@@ -235,7 +235,7 @@ int main()
 
         consulta_produto.close();
 
-        if(proc_operacao==0 && ficha >=p)
+        if (proc_operacao==0 && ficha >=p)
         {
 
 
@@ -270,13 +270,13 @@ int main()
 
         }
 
-        }
-
-
-        cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
-        cin >>  a ;
-
     }
+
+
+    cout << "-----------------DIGITE 1 PARA COMPRAR OU 0 PARA SAIR-----------------" << endl;
+    cin >>  a ;
+
+}
 
 
 
